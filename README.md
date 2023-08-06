@@ -2,17 +2,11 @@
 
 ## 🚧 W.I.P. pre-release BETA 🚧
 
-<div style="margin-bottom: 1em;">
-	<div style="display: flex; justify-content: center;">
-		<img src="https://livecodes.io/docs/img/livecodes-logo.svg" style="width:200px">
-	</div>
-	<div style="text-align: center;">
-		<a href="https://livecodes.io/docs/overview" target="_blank">Livecodes</a> REPL playground plugin for <a href="https://obsidian.md" target="_blank">Obsidian.md</a>
-	</div>
-	<div style="text-align: center;">
-		Read about <a href="https://livecodes.io/docs/why" target="_blank">why Livecodes</a>, it's <a href="https://livecodes.io/docs/features/" target="_blank">features</a> and <a href="https://livecodes.io/docs/features/self-hosting" target="_blank">how to self-host</a>
-	</div>
-</div>
+<img src="https://livecodes.io/docs/img/livecodes-logo.svg" style="width:200px; margin: 0 auto;">
+
+[Livecodes](https://livecodes.io/docs/overview) REPL playground plugin for [Obsidian.md](https://obsidian.md)
+
+Read about [why Livecodes](https://livecodes.io/docs/why), it's [features](https://livecodes.io/docs/features/) and [how to self-host](https://livecodes.io/docs/features/self-hosting)
 
 ## Screenshots
 
@@ -29,7 +23,7 @@
 1. `Livecodes: Open template in livecodes`
 2. `Livecodes: New blank project in livecodes`
 
-See starter templates here: [gapmiss/livecodes-for-obsidian/templates](https://github.com/gapmiss/livecodes-for-obsidian/tree/0.1.0-beta/src)
+See starter templates here: [gapmiss/livecodes-for-obsidian/templates](https://github.com/gapmiss/livecodes-for-obsidian/tree/0.1.0-beta/templates)
 
 ## Download
 
