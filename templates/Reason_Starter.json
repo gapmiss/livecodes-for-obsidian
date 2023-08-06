@@ -1,0 +1,56 @@
+{
+  "title": "Reason Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "script",
+  "markup": {
+    "language": "html",
+    "content": "<div id=\"app\">Loading...</div>\n"
+  },
+  "style": {
+    "language": "css",
+    "content": ".container,\n.container button {\n  text-align: center;\n  font: 1em sans-serif;\n}\n.logo {\n  width: 150px;\n}\n"
+  },
+  "script": {
+    "language": "reason",
+    "content": "module App = {\n  [@react.component]\n  let make = (~name) => {\n    let title = \"Hello, \" ++ name ++ \"!\"\n\n    let (count, setCount) = React.useState(() => 0);\n\n    let times = switch (count) {\n    | 1 => \"once\"\n    | 2 => \"twice\"\n    | n => string_of_int(n) ++ \" times\"\n    };\n\n    <div className=\"container\">\n      <h1> {React.string(title)} </h1>\n      <img className=\"logo\" alt=\"logo\" src=\"https://livecodes.io//livecodes/assets/templates/reason.svg\" />\n      <p> {React.string(\"You clicked \" ++ times)} </p>\n      <button onClick={_ => setCount(_ => count + 1)}>\n        {React.string(\"Click me\")}\n      </button>\n    </div>\n  };\n};\n\nswitch (ReactDOM.querySelector(\"#app\")) {\n| Some(app) => ReactDOM.render(<App name=\"ReasonReact\" />, app)\n| None => ()\n}\n\nJs.log(\"Hello, Reason!\");\n"
+  },
+  "stylesheets": [],
+  "scripts": [],
+  "cssPreset": "",
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "",
+    "status": ""
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {},
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": false,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}

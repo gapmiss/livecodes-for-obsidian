@@ -1,0 +1,56 @@
+{
+  "title": "C++ (Clang) Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "markup",
+  "markup": {
+    "language": "html",
+    "content": "<div class=\"container\">\n  <h1>Hello, <span id=\"name\">World</span>!</h1>\n  <img class=\"logo\" alt=\"logo\" src=\"https://livecodes.io//livecodes/assets/templates/cpp.svg\" />\n  <p>You clicked <span id=\"counter\">0</span> times.</p>\n  <button id=\"counter-button\" disabled>Loading...</button>\n</div>\n\n<script>\n  // set initial input\n  livecodes.cpp.input = \"-1\";\n\n  addEventListener('load', async () => {\n    const button = document.querySelector(\"#counter-button\");\n\n    // wait till loaded\n    await livecodes.cpp.loaded;\n\n    // get initial output\n    const initialOutput = livecodes.cpp.output;\n    update(initialOutput);\n\n    button.onclick = async () => {\n      button.disabled = true;\n      // run with new input\n      const {output, error, exitCode} = await livecodes.cpp.run(window.count);\n      update(output);\n    };\n\n    function update(output) {\n      const counter = document.querySelector(\"#counter\");\n      const name = document.querySelector(\"#name\");\n\n      const [title, count] = output.split('\\n');\n\n      if (parseInt(count) !== NaN) {\n        window.count = count;\n        counter.innerText = window.count;\n      }\n      if (title) {\n        name.innerText = title;\n      }\n      button.innerText = \"Click me\";\n      button.disabled = false;\n    }\n  });\n</script>\n"
+  },
+  "style": {
+    "language": "css",
+    "content": ".container,\n.container button {\n  text-align: center;\n  font: 1em sans-serif;\n}\n.logo {\n  width: 150px;\n}\n"
+  },
+  "script": {
+    "language": "clang",
+    "content": "#include <iostream>\nusing namespace std;\n\nint main() {\n    char title[] = \"C++\";\n    cout << title << endl;\n\n    int count;\n    cin >> count;\n    count += 1;\n    cout << count << endl;\n\n    return 0;\n}\n"
+  },
+  "stylesheets": [],
+  "scripts": [],
+  "cssPreset": "",
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "",
+    "status": ""
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {},
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": false,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}

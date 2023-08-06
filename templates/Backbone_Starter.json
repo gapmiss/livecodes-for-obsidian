@@ -1,0 +1,60 @@
+{
+  "title": "Backbone Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "script",
+  "markup": {
+    "language": "html",
+    "content": "<div class=\"container\">\n  <h1>Hello, <span id=\"title\">World</span>!</h1>\n  <img class=\"logo\" alt=\"logo\" src=\"https://livecodes.io//livecodes/assets/templates/backbone.svg\" />\n  <p>You clicked <span id=\"counter\">0</span> times.</p>\n  <button id=\"counter-button\">Click me</button>\n</div>\n"
+  },
+  "style": {
+    "language": "css",
+    "content": ".container,\n.container button {\n  text-align: center;\n  font: 1em sans-serif;\n}\n.logo {\n  width: 150px;\n}\n"
+  },
+  "script": {
+    "language": "javascript",
+    "content": "var Counter = Backbone.Model.extend({\n  defaults: {\n    value: 0,\n    title: 'Backbone'\n  },\n  increment: function() {\n    this.set({ value: this.get('value') + 1 });\n  }\n});\nvar counter = new Counter();\n\nvar AppView = Backbone.View.extend({\n  el:'.container',\n  render: function() {\n    this.$('#counter').html(this.model.get('value'));\n    this.$('#title').html(this.model.get('title'));\n  },\n  events:{\n    'click #counter-button': 'addOne',\n  },\n  initialize: function() {\n    this.model.on('change', this.render, this);\n    this.render();\n  },\n  addOne: function() {\n    this.model.increment();\n    this.render();\n  }\n});\nvar view = new AppView({ model: counter });\n"
+  },
+  "stylesheets": [],
+  "scripts": [
+    "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"
+  ],
+  "cssPreset": "",
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "",
+    "status": ""
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {},
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": false,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}

@@ -1,0 +1,56 @@
+{
+  "title": "Python (pyodide) Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "script",
+  "markup": {
+    "language": "html",
+    "content": "<h1 id=\"title\">Hello, World!</h1>\n<div id=\"plot\">Loading...</div>\n"
+  },
+  "style": {
+    "language": "css",
+    "content": "h1 {\n  text-align: center;\n}\n"
+  },
+  "script": {
+    "language": "pyodide",
+    "content": "from js import document, XMLHttpRequest\nimport pandas as pd\nimport matplotlib.pyplot as plt\nfrom io import StringIO\n\ndef load_data(url):\n  req = XMLHttpRequest.new()\n  req.open(\"GET\", url, False)\n  req.send()\n  res = req.response\n  return StringIO(f\"\"\"{res}\"\"\")\n\n\ndef prepare_data(dataframe):\n  def add_species_id(x):\n    if x == 'setosa':\n        return 0\n    elif x == 'versicolor':\n        return 1\n    return 2\n\n  df = dataframe.copy()\n  df['species_id'] = df['species'].apply(add_species_id)\n  return df\n\n\ndef showPlot(figure, selector):\n  iconStyles = document.createElement('link')\n  iconStyles.rel = 'stylesheet'\n  iconStyles.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'\n  document.head.appendChild(iconStyles)\n\n  def create_root_element(self):\n    el = document.querySelector(selector)\n    el.innerHTML = ''\n    return el\n\n  figure.canvas.create_root_element = type(figure.canvas.create_root_element)(\n    create_root_element, figure.canvas.__class__)\n  figure.canvas.show()\n\n\ndf = pd.read_csv(load_data(\"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv\"))\ndf = prepare_data(df)\n\nformatter = plt.FuncFormatter(lambda i, *args: df['species'].unique()[int(i)])\nfig = plt.figure(figsize=(6, 4))\nplt.scatter(df[df.columns[0]], df[df.columns[1]], c=df['species_id'])\nplt.colorbar(ticks=[0, 1, 2], format=formatter)\nplt.xlabel(df.columns[0])\nplt.ylabel(df.columns[1])\nplt.title('Iris dataset')\nplt.tight_layout()\nshowPlot(fig, '#plot')\n\ntitle = document.getElementById('title')\nname = 'Python'\ntitle.innerHTML = f\"Hello, {name}!\"\n"
+  },
+  "stylesheets": [],
+  "scripts": [],
+  "cssPreset": "",
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "",
+    "status": ""
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {},
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": false,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}

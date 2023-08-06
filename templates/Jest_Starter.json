@@ -1,0 +1,56 @@
+{
+  "title": "Jest Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "script",
+  "markup": {
+    "language": "html",
+    "content": "<div class=\"container\">\n  <h1>Hello, <span id=\"title\">World</span>!</h1>\n  <img class=\"logo\" alt=\"logo\" src=\"https://livecodes.io//livecodes/assets/templates/jest.svg\" />\n  <p>You clicked <span id=\"counter\">0</span> times.</p>\n  <button id=\"counter-button\">Click me</button>\n  <p class=\"info\">Run tests in the \"Tests\" panel below.</p>\n</div>\n"
+  },
+  "style": {
+    "language": "css",
+    "content": ".container,\n.container button {\n  text-align: center;\n  font: 1em sans-serif;\n}\n.logo {\n  width: 150px;\n}\n.info {\n  color: #404040;\n  font-size: 0.9em;\n  margin: 2em;\n}\n"
+  },
+  "script": {
+    "language": "javascript",
+    "content": "export class Counter {\n  count;\n  constructor() {\n    this.count = 0;\n  }\n  increment() {\n    this.count += 1;\n  }\n  getValue() {\n    return this.count;\n  }\n}\n\nconst title = document.querySelector(\"#title\");\nconst count = document.querySelector(\"#counter\");\nconst button = document.querySelector(\"#counter-button\");\n\ntitle.innerText = \"Jest\";\nconst counter = new Counter();\nbutton.addEventListener(\n  \"click\",\n  () => {\n    counter.increment();\n    count.innerText = counter.getValue();\n  },\n  false\n);\n"
+  },
+  "stylesheets": [],
+  "scripts": [],
+  "cssPreset": "",
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "tsx",
+    "content": "import { fireEvent, screen } from \"@testing-library/dom\";\nimport \"@testing-library/jest-dom\";\nimport { assert } from \"chai\";\nimport { Counter } from \"./script\";\n\ndescribe(\"Counter Class\", () => {\n  test(\"Should initialize count with zero\", () => {\n    const counter = new Counter();\n    expect(counter.getValue()).toBe(0);\n  });\n\n  test(\"Should increment\", () => {\n    const counter = new Counter();\n    counter.increment();\n    counter.increment();\n    counter.increment();\n    assert.equal(counter.getValue(), 3);\n  });})\n\ndescribe(\"Page\", () => {\n  test(\"Should display title\", async () => {\n    expect(screen.getByText(\"Hello\", { exact: false })).toHaveTextContent(\n      \"Hello, Jest!\"\n    );\n  });\n\n  test(\"Should display logo\", async () => {\n    expect(document.querySelector('.logo').src).toContain('jest.svg');\n  });\n\n  test(\"Should increment counter on button click\", async () => {\n    fireEvent.click(screen.getByText(\"Click me\"));\n    fireEvent.click(screen.getByText(\"Click me\"));\n    fireEvent.click(screen.getByText(\"Click me\"));\n    expect(screen.getByText(\"You clicked\", { exact: false })).toHaveTextContent(\n      \"You clicked 3 times.\"\n    );\n  });\n});\n"
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "",
+    "status": ""
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {},
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": false,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}

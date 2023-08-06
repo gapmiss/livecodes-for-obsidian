@@ -1,0 +1,56 @@
+{
+  "title": "Prolog Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "script",
+  "markup": {
+    "language": "html",
+    "content": "<div class=\"container\">\n  <h1>Hello, <span id=\"title\">World</span>!</h1>\n  <img class=\"logo\" alt=\"logo\" src=\"https://livecodes.io//livecodes/assets/templates/tau-prolog.svg\" title=\"Tau Prolog\" />\n\t<form id=\"query-form\" onsubmit=\"runQuery(); return false;\">\n\t\t<input type=\"text\" id=\"query\" value=\"father(X, jack).\" placeholder=\"Enter a query\" />\n\t\t<input type=\"submit\" value=\"Run query\" id=\"button\" />\n\t\t<pre id=\"result\"></pre>\n\t</form>\n</div>\n\n<script>\n  async function getTitle() {\n    const session = await livecodes.prolog.createSession();\n    session.query('title(X).');\n    session.answer(function(answer) {\n      document.getElementById(\"title\").innerText = answer.lookup('X');\n    });\n  }\n\n  async function runQuery() {\n    const query = document.getElementById(\"query\").value;\n    const result = document.getElementById(\"result\");\n\n    const session = await livecodes.prolog.createSession({limit: 1000});\n    session.promiseQuery(query).then(async () => {\n      result.innerText = \"\";\n      for await (let answer of session.promiseAnswers()) {\n        if(pl.type.is_substitution(answer)) {\n          console.log(session.format_answer(answer));\n          result.innerText += session.format_answer(answer) + '\\n';\n        }\n      }\n      if (result.innerText == \"\") {\n        result.innerText = \"false.\";\n      }\n      result.classList.remove('error');\n    }).catch((err) => {\n      result.innerText = err;\n      result.classList.add('error');\n    })\n  }\n\n  getTitle();\n  runQuery();\n</script>\n"
+  },
+  "style": {
+    "language": "css",
+    "content": ".container,\n.container button {\n  text-align: center;\n  font: 1em sans-serif;\n}\n.logo {\n  width: 150px;\n}\n#query {\n  width: 20em;\n}\n#result {\n  background-color: #fafafa;\n  border: 1px solid #ddd;\n  border-radius: 5px;\n  box-sizing: border-box;\n  color: #3d3d3d;\n  margin: 1em;\n  padding: 1em;\n  text-align: left;\n}\n#result.error {\n  color: red;\n}"
+  },
+  "script": {
+    "language": "prolog",
+    "content": "title('Prolog').\n\nmale(john).\nmale(oliver).\nmale(ali).\nmale(james).\nmale(jack).\nmale(harry).\nfemale(helen).\nfemale(sophie).\nfemale(mary).\nfemale(sue).\n\nparent(john, mary).\nparent(john, sue).\nparent(helen, mary).\nparent(helen, sue).\nparent(oliver, james).\nparent(sophie, james).\nparent(mary, jack).\nparent(ali, jack).\nparent(sue, harry).\nparent(james, harry).\n\nfather(X, Y):- male(X),\n    parent(X, Y).\n\nmother(X, Y):- female(X),\n    parent(X, Y).\n\ngrandfather(X, Y):- male(X),\n    parent(X, Z),\n    parent(Z, Y).\n\ngrandmother(X, Y):- female(X),\n    parent(X, Z),\n    parent(Z, Y).\n\nsister(X, Y):- female(X),\n    father(F, Y),\n    father(F, X),\n    X \\= Y.\nsister(X, Y):- female(X),\n    mother(M, Y),\n    mother(M, X),\n    X \\= Y.\n\nbrother(X, Y):- male(X),\n    father(F, Y),\n    father(F, X),\n    X \\= Y.\nbrother(X, Y):- male(X),\n    mother(M, Y),\n    mother(M, X),\n    X \\= Y.\n\nuncle(X, Y):- parent(Z, Y),\n    brother(Z, X).\n\naunt(X, Y):- parent(Z, Y),\n    sister(Z, X).\n\nancestor(X, Y):- parent(X, Y).\nancestor(X, Y):- parent(X, Z),\n    ancestor(Z, Y).\n"
+  },
+  "stylesheets": [],
+  "scripts": [],
+  "cssPreset": "",
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "",
+    "status": ""
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {},
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": false,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}

@@ -1,0 +1,62 @@
+{
+  "title": "Angular Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "script",
+  "markup": {
+    "language": "html",
+    "content": "<app>Loading...</app>\n"
+  },
+  "style": {
+    "language": "css",
+    "content": ""
+  },
+  "script": {
+    "language": "typescript",
+    "content": "import { Component, Input, NgModule, enableProdMode } from '@angular/core@12.2.13';\nimport { CommonModule } from '@angular/common@12.2.13';\nimport { BrowserModule } from '@angular/platform-browser@12.2.13';\nimport { platformBrowserDynamic } from '@angular/platform-browser-dynamic@12.2.13';\nimport 'zone.js/dist/zone';\n\n// app.component.ts\n@Component({\n  selector: \"app\",\n  styles: [\n    `\n  .container,\n  .container button {\n    text-align: center;\n    font: 1em sans-serif;\n  }\n  .logo {\n    width: 150px;\n  }\n  `,\n  ],\n  template: `\n    <div class=\"container\">\n      <heading name=\"{{name}}\"></heading>\n      <img class=\"logo\" alt=\"logo\" src=\"https://livecodes.io//livecodes/assets/templates/angular.svg\" />\n      <p>You clicked {{count}} times.</p>\n      <button type=\"button\" (click)=\"increment()\">Click me</button>\n    </div>\n  `,\n})\nclass AppComponent {\n  count = 0;\n  name = \"Angular\";\n\n  constructor() {}\n\n  increment() {\n    this.count += 1;\n  }\n}\n\n// heading.component.ts\n@Component({\n  selector: \"heading\",\n  template: \"<h1>{{title}}</h1>\",\n})\nclass HeadingComponent {\n  @Input() name: string;\n  title: string;\n\n  ngOnInit() {\n    this.title = `Hello, ${this.name}!`;\n  }\n}\n\n// app.module.ts\n@NgModule({\n  imports: [BrowserModule, CommonModule],\n  declarations: [AppComponent, HeadingComponent],\n  bootstrap: [AppComponent],\n  providers: [],\n})\nclass AppModule {}\n\n// main.ts\n// enableProdMode();\nplatformBrowserDynamic()\n  .bootstrapModule(AppModule)\n  .catch((err: Error) => console.error(err));\n"
+  },
+  "stylesheets": [],
+  "scripts": [],
+  "cssPreset": "",
+  "imports": {},
+  "types": {
+    "zone.js/dist/zone": ""
+  },
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "",
+    "status": ""
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {
+    "typescript": {
+      "experimentalDecorators": true
+    }
+  },
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": false,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}

@@ -1,0 +1,56 @@
+{
+  "title": "Common Lisp Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "script",
+  "markup": {
+    "language": "html",
+    "content": "<div class=\"container\">\n  <h1 id=\"title\">Hello, World!</h1>\n  <img class=\"logo\" alt=\"logo\" src=\"https://livecodes.io//livecodes/assets/templates/commonlisp.svg\" />\n  <p>You clicked <span id=\"counter\">0</span> times.</p>\n  <button id=\"counter-button\">Click me</button>\n</div>\n"
+  },
+  "style": {
+    "language": "css",
+    "content": ".container,\n.container button {\n  text-align: center;\n  font: 1em sans-serif;\n}\n.logo {\n  width: 150px;\n}\n"
+  },
+  "script": {
+    "language": "commonlisp",
+    "content": "(defun set-attribute (&key selector attribute value)\n  (let ((node\n         (#j:document:querySelector selector)))\n    (setf (jscl::oget node attribute) value)\n    node))\n\n(let ((title \"Common Lisp\"))\n  (set-attribute :selector \"#title\" :attribute \"innerHTML\"\n      :value (format nil \"Hello, ~A!\" title)))\n\n(let ((counter 0))\n  (set-attribute :selector \"#counter-button\" :attribute \"onclick\"\n    :value #'(lambda (ev)\n              (setf counter (+ counter 1))\n              (set-attribute :selector \"#counter\" :attribute \"innerHTML\"\n               :value counter))))\n\n(#j:console:clear)\n(write \"Hello, Common Lisp!\")\n"
+  },
+  "stylesheets": [],
+  "scripts": [],
+  "cssPreset": "",
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "",
+    "status": ""
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {},
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": false,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}

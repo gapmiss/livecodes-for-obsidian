@@ -1,0 +1,57 @@
+{
+  "title": "Diagrams Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "markup",
+  "markup": {
+    "language": "diagrams",
+    "content": "<div class=\"container\">\n  <h3>Gnuplot</h3>\n  <div data-src=\"contour.svg\"></div>\n\n  <h3>Graphviz</h3>\n  <div data-src=\"flow-chart.svg\"></div>\n\n  <h3>Mermaid</h3>\n  <div data-src=\"class-diagram.svg\"></div>\n\n  <h3>Vega</h3>\n  <div data-src=\"vega.svg\"></div>\n\n  <h3>VegaLite</h3>\n  <div data-src=\"vega-lite.svg\"></div>\n\n  <h3>Plotly</h3>\n  <!-- any graph can be rendered as image -->\n  <img data-src=\"box.svg\" />\n\n  <h3>Nomnoml</h3>\n  <img data-src=\"nomnoml.svg\" />\n\n  <h3>WaveDrom</h3>\n  <div data-src=\"diagram.svg\"></div>\n\n  <h3>Pintora</h3>\n  <img data-src=\"pintora.svg\" />\n\n  <h3>Svgbob</h3>\n  <div data-src=\"svgbob.svg\"></div>\n\n  <h3>Cytoscape</h3>\n  <div data-src=\"cytoscape.svg\"></div>\n\n  <h3>ELK</h3>\n  <div data-src=\"elk.svg\"></div>\n</div>\n\n<script type=\"application/diagram-gnuplot\">\n  set terminal svg size 600,400 enhanced fname 'arial' fsize 10 butt solid\n  set output 'contour.svg'\n  set view 60, 30, 0.85, 1.1\n  set samples 25, 25\n  set isosamples 26, 26\n  set contour base\n  set cntrparam bspline\n  set cntrparam levels auto 10\n  set style data lines\n  set title \"3D gnuplot demo - contour of data grid plotting\"\n  set xlabel \"X axis\"\n  set xrange [ 0.00000 : 15.0000 ] noreverse nowriteback\n  set ylabel \"Y axis\"\n  set yrange [ 0.00000 : 15.0000 ] noreverse nowriteback\n  set zlabel \"Z axis\"\n  set zlabel  offset character 1, 0, 0 font \"\" textcolor lt -1 norotate\n  set zrange [ -1.20000 : 1.20000 ] noreverse nowriteback\n\n  # \"glass.dat\" is defined below\n  splot \"glass.dat\" using 1\n</script>\n\n<script\n  type=\"application/diagram-gnuplot-file\"\n  data-file=\"glass.dat\"\n  src=\"https://raw.githubusercontent.com/gnuplot/gnuplot/master/demo/glass.dat\"\n></script>\n<!--  or inline content in script block -->\n<!--\n<script type=\"application/diagram-gnuplot-file\" data-file=\"glass.dat\">\n  0.568000   0.000000  -0.911000\n  0.518894   0.231026  -0.911000\n  0.380066   0.422106  -0.911000\n  0.175522   0.540200  -0.911000\n -0.059372   0.564888  -0.911000\n</script>\n -->\n\n<script type=\"application/diagram-graphviz\" data-output=\"flow-chart.svg\">\n  digraph G {\n      node [shape=rect];\n\n      subgraph cluster_0 {\n          style=filled;\n          color=lightgrey;\n          node [style=filled,color=white];\n          a0 -> a1 -> a2 -> a3;\n          label = \"Hello\";\n      }\n\n      subgraph cluster_1 {\n          node [style=filled];\n          b0 -> b1 -> b2 -> b3;\n          label = \"World!\";\n          color=blue\n      }\n\n      start -> a0;\n      start -> b0;\n      a1 -> b3;\n      b2 -> a3;\n      a3 -> a0;\n      a3 -> end;\n      b3 -> end;\n\n      start [shape=Mdiamond];\n      end [shape=Msquare];\n  }\n</script>\n\n<script type=\"application/diagram-mermaid\" data-output=\"class-diagram.svg\">\n  classDiagram\n  Class01 <|-- AveryLongClass : Cool\n  Class03 *-- Class04\n  Class05 o-- Class06\n  Class07 .. Class08\n  Class09 --> C2 : Where am i?\n  Class09 --* C3\n  Class09 --|> Class07\n  Class07 : equals()\n  Class07 : Object[] elementData\n  Class01 : size()\n  Class01 : int chimp\n  Class01 : int gorilla\n  Class08 <--> C2: Cool label\n</script>\n\n<script\n  type=\"application/diagram-vega\"\n  data-output=\"vega.svg\"\n  src=\"https://vega.github.io/vega/examples/stacked-bar-chart.vg.json\"\n></script>\n\n<script\n  type=\"application/diagram-vega-lite\"\n  data-output=\"vega-lite.svg\"\n  src=\"https://vega.github.io/vega-lite/examples/sequence_line_fold.vl.json\"\n></script>\n\n<script type=\"application/diagram-plotly\" data-output=\"box.svg\">\n  {\n    \"data\": [\n      {\n        \"y\": [\n          0.2,\n          0.2,\n          0.6,\n          1,\n          0.5,\n          0.4,\n          0.2,\n          0.7,\n          0.9,\n          0.1,\n          0.5,\n          0.3\n        ],\n        \"x\": [\n          \"day 1\",\n          \"day 1\",\n          \"day 1\",\n          \"day 1\",\n          \"day 1\",\n          \"day 1\",\n          \"day 2\",\n          \"day 2\",\n          \"day 2\",\n          \"day 2\",\n          \"day 2\",\n          \"day 2\"\n        ],\n        \"name\": \"kale\",\n        \"marker\": {\n          \"color\": \"#3D9970\"\n        },\n        \"type\": \"box\"\n      },\n      {\n        \"y\": [\n          0.6,\n          0.7,\n          0.3,\n          0.6,\n          0,\n          0.5,\n          0.7,\n          0.9,\n          0.5,\n          0.8,\n          0.7,\n          0.2\n        ],\n        \"x\": [\n          \"day 1\",\n          \"day 1\",\n          \"day 1\",\n          \"day 1\",\n          \"day 1\",\n          \"day 1\",\n          \"day 2\",\n          \"day 2\",\n          \"day 2\",\n          \"day 2\",\n          \"day 2\",\n          \"day 2\"\n        ],\n        \"name\": \"radishes\",\n        \"marker\": {\n          \"color\": \"#FF4136\"\n        },\n        \"type\": \"box\"\n      },\n      {\n        \"y\": [\n          0.1,\n          0.3,\n          0.1,\n          0.9,\n          0.6,\n          0.6,\n          0.9,\n          1,\n          0.3,\n          0.6,\n          0.8,\n          0.5\n        ],\n        \"x\": [\n          \"day 1\",\n          \"day 1\",\n          \"day 1\",\n          \"day 1\",\n          \"day 1\",\n          \"day 1\",\n          \"day 2\",\n          \"day 2\",\n          \"day 2\",\n          \"day 2\",\n          \"day 2\",\n          \"day 2\"\n        ],\n        \"name\": \"carrots\",\n        \"marker\": {\n          \"color\": \"#FF851B\"\n        },\n        \"type\": \"box\"\n      }\n    ],\n    \"layout\": {\n      \"yaxis\": {\n        \"title\": \"normalized moisture\",\n        \"zeroline\": false\n      },\n      \"boxmode\": \"group\"\n    }\n  }\n</script>\n\n<script type=\"application/diagram-nomnoml\" data-output=\"nomnoml.svg\">\n  [Pirate|eyeCount: Int|raid();pillage()|\n    [beard]--[parrot]\n    [beard]-:>[foul mouth]\n  ]\n\n  [<table>mischief | bawl | sing || yell | drink]\n\n  [<abstract>Marauder]<:--[Pirate]\n  [Pirate]- 0..7[mischief]\n  [jollyness]->[Pirate]\n  [jollyness]->[rum]\n  [jollyness]->[singing]\n  [Pirate]-> *[rum|tastiness: Int|swig()]\n  [Pirate]->[singing]\n  [singing]<->[rum]\n\n  [<start>st]->[<state>plunder]\n  [plunder]->[<choice>more loot]\n  [more loot]->[st]\n  [more loot] no ->[<end>e]\n\n  [<actor>Sailor] - [<usecase>shiver me;timbers]\n</script>\n\n<script type=\"application/diagram-wavedrom\" data-output=\"diagram.svg\">\n  { signal : [\n    { name: \"clk\",  wave: \"p......\" },\n    { name: \"bus\",  wave: \"x.34.5x\",   data: \"head body tail\" },\n    { name: \"wire\", wave: \"0.1..0.\" },\n  ]}\n</script>\n\n<script type=\"application/diagram-pintora\" data-output=\"pintora.svg\">\n  mindmap\n  @param layoutDirection TB\n  * Pintora diagrams\n  ** UML Diagrams\n  *** Sequence Diagram\n  *** Activity Diagram\n  *** Component Diagram\n  ** Non-UML Diagrams\n  *** Entity Relationship Diagram\n  *** Mind Map\n</script>\n\n<script type=\"application/diagram-svgbob\" data-output=\"svgbob.svg\">\n  o-> Graphics Diagram\n\n     0       3                          P *\n      *-------*      +y                    \\\n   1 /|    2 /|       ^                     \\\n    *-+-----* |       |                v0    \\       v3\n    | |4    | |7      | ◄╮               *----\\-----*\n    | *-----|-*     ⤹ +-----> +x        /      v X   \\\n    |/      |/       / ⤴               /        o     \\\n    *-------*       v                 /                \\\n   5       6      +z              v1 *------------------* v2\n</script>\n\n<script type=\"application/diagram-cytoscape\" data-output=\"cytoscape.svg\">\n  {\n    \"elements\": [\n      {\n        \"data\": { \"id\": \"a\" }},\n      {\n        \"data\": { \"id\": \"b\" }},\n      {\n        \"data\": { \"id\": \"ab\", \"source\": \"a\", \"target\": \"b\" }}],\n\n    \"style\": [\n      {\n        \"selector\": \"node\",\n        \"style\": {\n          \"background-color\": \"#666\",\n          \"label\": \"data(id)\"}\n      },\n\n      {\n        \"selector\": \"edge\",\n        \"style\": {\n          \"width\": 3,\n          \"line-color\": \"#ccc\",\n          \"target-arrow-color\": \"#ccc\",\n          \"target-arrow-shape\": \"triangle\",\n          \"curve-style\": \"bezier\"\n        }\n      }\n    ],\n\n    \"layout\": {\n      \"name\": \"grid\",\n      \"rows\": 1\n    }\n\n  }\n</script>\n\n<script type=\"application/diagram-elk\" data-output=\"elk.svg\">\n  {\n    \"id\": \"root\",\n    \"layoutOptions\": {\n      \"elk.algorithm\": \"layered\"\n    },\n    \"children\": [\n      {\"id\": \"n1\", \"width\": 70, \"height\": 70},\n      {\"id\": \"n2\", \"width\": 70, \"height\": 70},\n      {\"id\": \"n3\", \"width\": 70, \"height\": 70},\n      {\"id\": \"n4\", \"width\": 70, \"height\": 70},\n      {\"id\": \"n5\", \"width\": 70, \"height\": 70},\n      {\"id\": \"n6\", \"width\": 70, \"height\": 70}\n    ],\n    \"edges\": [\n      {\"id\": \"e1\", \"sources\": [\"n1\"], \"targets\": [\"n2\"]},\n      {\"id\": \"e2\", \"sources\": [\"n1\"], \"targets\": [\"n3\"]},\n      {\"id\": \"e3\", \"sources\": [\"n2\"], \"targets\": [\"n4\"]},\n      {\"id\": \"e4\", \"sources\": [\"n3\"], \"targets\": [\"n5\"]},\n      {\"id\": \"e5\", \"sources\": [\"n5\"], \"targets\": [\"n6\"]},\n      {\"id\": \"e6\", \"sources\": [\"n4\"], \"targets\": [\"n6\"]}\n    ]\n  }\n</script>\n",
+    "contentUrl": "https://livecodes.io//livecodes/assets/templates/diagrams-starter.html"
+  },
+  "style": {
+    "language": "css",
+    "content": ".container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.container div {\n  width: 100%;\n  text-align: center;\n}\n\n.container img {\n  width: 80%;\n  max-width: 600px;\n}\n\n.container h3:not(:nth-child(1)) {\n  margin-top: 3em;\n}\n"
+  },
+  "script": {
+    "language": "javascript",
+    "content": ""
+  },
+  "stylesheets": [],
+  "scripts": [],
+  "cssPreset": "",
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "",
+    "status": ""
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {},
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": false,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}

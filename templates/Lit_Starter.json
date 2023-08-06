@@ -1,0 +1,59 @@
+{
+  "title": "Lit Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "markup",
+  "markup": {
+    "language": "html",
+    "content": "<div class=\"container\">\n  <h1>Hello, <span id=\"title\">World</span>!</h1>\n  <img class=\"logo\" alt=\"logo\" src=\"https://lit.dev/images/logo.svg\" />\n  <custom-counter></custom-counter>\n</div>\n"
+  },
+  "style": {
+    "language": "css",
+    "content": ".container,\n.container button {\n  text-align: center;\n  font: 1em sans-serif;\n}\n.logo {\n  width: 200px;\n}\n"
+  },
+  "script": {
+    "language": "jsx",
+    "content": "import { LitElement, html } from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';\n\nclass Counter extends LitElement {\n  static get properties() {\n    return {\n      count: { type: Number },\n    };\n  }\n\n  constructor() {\n    super();\n    this.count = 0;\n  }\n\n  setCount = count => {\n    this.count = count;\n  };\n\n  render() {\n    const { count } = this;\n    return html`\n      <p>You clicked <span id=\"counter\">${count}</span> times.</p>\n      <button id=\"counter-button\" @click=${() => this.setCount(count + 1)}>Click me</button>\n    `;\n  }\n}\n\ncustomElements.define('custom-counter', Counter);\n"
+  },
+  "stylesheets": [],
+  "scripts": [],
+  "cssPreset": "",
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "console",
+    "status": "open"
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {},
+  "editor": "monaco",
+  "fontFamily": "Default",
+  "fontSize": 12,
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": true,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}

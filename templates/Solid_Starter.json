@@ -1,0 +1,56 @@
+{
+  "title": "Solid Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "script",
+  "markup": {
+    "language": "html",
+    "content": "<div id=\"app\"></div>\n"
+  },
+  "style": {
+    "language": "css",
+    "content": ".container,\n.container button {\n  text-align: center;\n  font: 1em sans-serif;\n}\n.logo {\n  width: 150px;\n}\n"
+  },
+  "script": {
+    "language": "solid.tsx",
+    "content": "import { render } from \"solid-js/web\";\nimport { createSignal } from \"solid-js\";\n\ntype Props = {\n  title: string;\n}\n\nfunction App(props: Props) {\n  const [count, setCount] = createSignal(0);\n  const increment = () => setCount(count() + 1);\n\n  return (\n    <div className=\"container\">\n      <h1>Hello, {props.title}!</h1>\n      <img className=\"logo\" alt=\"logo\" src=\"https://livecodes.io//livecodes/assets/templates/solid.svg\" />\n      <p>You clicked {count} times.</p>\n      <button onClick={increment}>Click me</button>\n    </div>\n  );\n}\n\nrender(() => <App title=\"Solid\" />, document.getElementById(\"app\"));\n"
+  },
+  "stylesheets": [],
+  "scripts": [],
+  "cssPreset": "",
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "",
+    "status": ""
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {},
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": false,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}

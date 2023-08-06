@@ -1,0 +1,60 @@
+{
+  "title": "Bootstrap Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "markup",
+  "markup": {
+    "language": "html",
+    "content": "<nav class=\"navbar navbar-expand-md navbar-dark bg-dark fixed-top\">\n  <div class=\"container-fluid\">\n    <a class=\"navbar-brand\" href=\"#\">Navbar</a>\n    <button\n      class=\"navbar-toggler\"\n      type=\"button\"\n      data-bs-toggle=\"collapse\"\n      data-bs-target=\"#navbarsExampleDefault\"\n      aria-controls=\"navbarsExampleDefault\"\n      aria-expanded=\"false\"\n      aria-label=\"Toggle navigation\"\n    >\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">\n      <ul class=\"navbar-nav me-auto mb-2 mb-md-0\">\n        <li class=\"nav-item active\">\n          <a class=\"nav-link\" aria-current=\"page\" href=\"#\">Home</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">Link</a>\n        </li>\n        <li class=\"nav-item\">\n          <a\n            class=\"nav-link disabled\"\n            href=\"#\"\n            tabindex=\"-1\"\n            aria-disabled=\"true\"\n            >Disabled</a\n          >\n        </li>\n        <li class=\"nav-item dropdown\">\n          <a\n            class=\"nav-link dropdown-toggle\"\n            href=\"#\"\n            id=\"dropdown01\"\n            data-bs-toggle=\"dropdown\"\n            aria-expanded=\"false\"\n            >Dropdown</a\n          >\n          <ul class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">\n            <li><a class=\"dropdown-item\" href=\"#\">Action</a></li>\n            <li><a class=\"dropdown-item\" href=\"#\">Another action</a></li>\n            <li><a class=\"dropdown-item\" href=\"#\">Something else here</a></li>\n          </ul>\n        </li>\n      </ul>\n      <form class=\"d-flex\">\n        <input\n          class=\"form-control me-2\"\n          type=\"search\"\n          placeholder=\"Search\"\n          aria-label=\"Search\"\n        />\n        <button class=\"btn btn-outline-success\" type=\"submit\">Search</button>\n      </form>\n    </div>\n  </div>\n</nav>\n\n<main class=\"container\">\n  <div class=\"starter-template text-center py-5 px-3\">\n    <h1>Bootstrap starter template</h1>\n    <p class=\"lead\">\n      Use this document as a way to quickly start any new project.<br />\n      All you get is this text and a mostly barebones HTML document.\n    </p>\n  </div>\n</main>\n"
+  },
+  "style": {
+    "language": "css",
+    "content": "body {\n  padding-top: 5rem;\n}\n\n.bd-placeholder-img {\n  font-size: 1.125rem;\n  text-anchor: middle;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  user-select: none;\n}\n\n@media (min-width: 768px) {\n  .bd-placeholder-img-lg {\n    font-size: 3.5rem;\n  }\n}\n"
+  },
+  "script": {
+    "language": "javascript",
+    "content": ""
+  },
+  "stylesheets": [
+    "https://fastly.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  ],
+  "scripts": [
+    "https://fastly.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ],
+  "cssPreset": "",
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "",
+    "status": ""
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {},
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": false,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}

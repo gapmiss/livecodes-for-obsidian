@@ -1,0 +1,56 @@
+{
+  "title": "Go Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "script",
+  "markup": {
+    "language": "html",
+    "content": "<div class=\"container\">\n  <h1>Hello, <span id=\"title\">World</span>!</h1>\n  <img class=\"logo\" alt=\"logo\" src=\"https://livecodes.io//livecodes/assets/templates/go.svg\" />\n  <p>You clicked <span id=\"counter\">0</span> times.</p>\n  <button id=\"counter-button\">Click me</button>\n</div>\n"
+  },
+  "style": {
+    "language": "css",
+    "content": ".container,\n.container button {\n  text-align: center;\n  font: 1em sans-serif;\n}\n.logo {\n  width: 250px;\n}\n"
+  },
+  "script": {
+    "language": "go",
+    "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"syscall/js\"\n\t\"time\"\n)\n\nfunc main() {\n\ttitle := querySelector(\"#title\")\n\ttitle.Set(\"innerHTML\", \"Golang\")\n\n\tregisterCounter()\n\n\t// yes, you can use goroutines (check the console)\n\tgo greet()\n  fmt.Println(\"Hello!\")\n}\n\nfunc querySelector(id string) js.Value {\n\treturn js.Global().Get(\"document\").Call(\"querySelector\", id)\n}\n\nfunc registerCounter() {\n\tbtn := querySelector(\"#counter-button\")\n\tcounter := querySelector(\"#counter\")\n\tcount := 0\n\n\tvar cb js.Func\n\tcb = js.FuncOf(func(this js.Value, args []js.Value) interface{} {\n\t\tcount += 1\n\t\tcounter.Set(\"innerHTML\", count)\n\t\treturn nil\n\t})\n\tbtn.Call(\"addEventListener\", \"click\", cb)\n}\n\nfunc greet() {\n\tif hours, _, _ := time.Now().Clock(); hours < 12 {\n\t\tfmt.Println(\"Good morning\")\n\t} else if hours < 18 {\n\t\tfmt.Println(\"Good afternoon\")\n\t} else {\n\t\tfmt.Println(\"Good evening\")\n\t}\n}\n"
+  },
+  "stylesheets": [],
+  "scripts": [],
+  "cssPreset": "",
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "",
+    "status": ""
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {},
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": false,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}

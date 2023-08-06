@@ -1,0 +1,56 @@
+{
+  "title": "Markdown Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "markup",
+  "markup": {
+    "language": "markdown",
+    "content": "# Project Title\n\nOne Paragraph of project description goes here\n\n## Getting Started\n\nThese instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.\n\n### Prerequisites\n\nWhat things you need to install the software and how to install them\n\n```\nGive examples\n```\n\n### Installing\n\nA step by step series of examples that tell you how to get a development env running\n\nSay what the step will be\n\n```\nGive the example\n```\n\nAnd repeat\n\n```\nuntil finished\n```\n\nEnd with an example of getting some data out of the system or using it for a little demo\n\n## Running the tests\n\nExplain how to run the automated tests for this system\n\n### Break down into end to end tests\n\nExplain what these tests test and why\n\n```\nGive an example\n```\n\n### And coding style tests\n\nExplain what these tests test and why\n\n```\nGive an example\n```\n\n## Deployment\n\nAdd additional notes about how to deploy this on a live system\n\n## Built With\n\n* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used\n* [Maven](https://maven.apache.org/) - Dependency Management\n* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds\n\n## Contributing\n\nPlease read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.\n\n## Versioning\n\nWe use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).\n\n## Authors\n\n* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)\n\nSee also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.\n\n## License\n\nThis project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details\n\n## Acknowledgments\n\n* Hat tip to anyone whose code was used\n* Inspiration\n* etc\n\n\nSource: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2\n"
+  },
+  "style": {
+    "language": "css",
+    "content": "@import \"github-markdown-css\";\n\nbody {\n  border: 1px solid #e1e4e8;\n  border-radius: 6px;\n  padding: 20px;\n  margin: 20px !important;\n}\n"
+  },
+  "script": {
+    "language": "javascript",
+    "content": "document.body.classList.add('markdown-body');\n"
+  },
+  "stylesheets": [],
+  "scripts": [],
+  "cssPreset": "",
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "",
+    "status": ""
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {},
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": false,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}

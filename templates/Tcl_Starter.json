@@ -1,0 +1,56 @@
+{
+  "title": "Tcl Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "script",
+  "markup": {
+    "language": "html",
+    "content": "<div class=\"container\">\n  <h1>Hello, <span id=\"name\">World</span>!</h1>\n  <img class=\"logo\" alt=\"logo\" src=\"https://livecodes.io//livecodes/assets/templates/tcl.svg\" />\n  <p>You clicked <span id=\"counter\">0</span> times.</p>\n  <button id=\"counter-button\" disabled>Loading...</button>\n</div>\n\n<script>\n  // set input\n  livecodes.tcl.input = \"-1\";\n\n  addEventListener(\"load\", async () => {\n    const button = document.querySelector(\"#counter-button\");\n    // wait till loaded\n    await livecodes.tcl.loaded;\n    button.innerText = \"Click me\";\n    button.disabled = false;\n\n    button.onclick = async () => {\n      const {output, error} = await livecodes.tcl.run();\n    };\n  });\n</script>\n"
+  },
+  "style": {
+    "language": "css",
+    "content": ".container,\n.container button {\n  text-align: center;\n  font: 1em sans-serif;\n}\n.logo {\n  width: 150px;\n}\n"
+  },
+  "script": {
+    "language": "tcl",
+    "content": "set title \"Tcl\"\n::wacl::dom attr \"#name\" innerText $title\n\nset input [gets stdin]\nif {[info exists count]} {\n  incr count\n} else {\n  set count [expr $input + 1]\n}\n::wacl::dom attr \"#counter\" innerText $count\nputs $count\n"
+  },
+  "stylesheets": [],
+  "scripts": [],
+  "cssPreset": "",
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "",
+    "status": ""
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {},
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": false,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}

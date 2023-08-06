@@ -1,0 +1,56 @@
+{
+  "title": "WebAssembly Text Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "script",
+  "markup": {
+    "language": "html",
+    "content": "<div class=\"container\">\n  <h1>Hello, <span id=\"title\">World</span>!</h1>\n  <img class=\"logo\" alt=\"logo\" src=\"https://livecodes.io//livecodes/assets/templates/webassembly.svg\" />\n  <p>You clicked <span id=\"counter\">0</span> times.</p>\n  <button id=\"counter-button\">Click me</button>\n</div>\n\n<script>\n  (async () => {\n    const importObject = {\n      title: {\n        change: changeTitle,\n      },\n    };\n\n    // The `loadWasm` method of `livecodes` global object\n    // optionally takes an import object and\n    // returns a promise which resolves to an object\n    // exposing the compiled wasm module and wasm binary\n    const { wasmModule, binary } = await livecodes.loadWasm(importObject);\n    const { memory, setTitle, increment } = wasmModule.exports;\n\n    function changeTitle(offset, length) {\n      const bytes = new Uint8Array(memory.buffer, offset, length);\n      const title = new TextDecoder(\"utf8\").decode(bytes);\n      document.querySelector(\"#title\").innerText = title;\n    }\n    setTitle();\n\n    const counter = document.querySelector(\"#counter\");\n    const button = document.querySelector(\"#counter-button\");\n    let count = 0;\n\n    button.addEventListener(\n      \"click\",\n      () => {\n        count = increment(count);\n        counter.innerText = count;\n      },\n      false\n    );\n  })();\n</script>\n"
+  },
+  "style": {
+    "language": "css",
+    "content": ".container,\n.container button {\n  text-align: center;\n  font: 1em sans-serif;\n}\n.logo {\n  width: 150px;\n}\n"
+  },
+  "script": {
+    "language": "wat",
+    "content": "(module\n  (import \"title\" \"change\" (func $changeTitle (param i32) (param i32)))\n  (export \"memory\" (memory $0))\n  (export \"setTitle\" (func $setTitle))\n  (export \"increment\" (func $increment))\n  (memory $0 1)\n  (data 0 (i32.const 0) \"WebAssembly Text\")\n  (func $setTitle\n    (call $changeTitle (i32.const 0) (i32.const 16))\n  )\n  (func $increment (param $0 i32) (result i32)\n    (i32.add (local.get $0) (i32.const 1))\n  )\n)\n"
+  },
+  "stylesheets": [],
+  "scripts": [],
+  "cssPreset": "",
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "",
+    "status": ""
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {},
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": false,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}

@@ -1,0 +1,56 @@
+{
+  "title": "Knockout Starter",
+  "description": "",
+  "tags": [],
+  "autoupdate": true,
+  "autosave": false,
+  "delay": 1500,
+  "formatOnsave": false,
+  "mode": "full",
+  "theme": "dark",
+  "recoverUnsaved": true,
+  "showSpacing": false,
+  "welcome": true,
+  "readonly": false,
+  "allowLangChange": true,
+  "activeEditor": "script",
+  "markup": {
+    "language": "html",
+    "content": "<div class=\"container\">\n  <h1>Hello, <span data-bind=\"text: title\">World</span>!</h1>\n  <img class=\"logo\" alt=\"logo\" src=\"https://livecodes.io//livecodes/assets/templates/knockout.svg\" />\n  <p>You clicked <span data-bind=\"text: numberOfClicks\">0</span> times.</p>\n  <button data-bind=\"click: registerClick\">Click me</button>\n</div>\n"
+  },
+  "style": {
+    "language": "css",
+    "content": ".container,\n.container button {\n  text-align: center;\n  font: 1em sans-serif;\n}\n.logo {\n  width: 250px;\n}\n"
+  },
+  "script": {
+    "language": "javascript",
+    "content": "import ko from \"knockout\";\n\nclass ClickCounterViewModel {\n  constructor() {\n    this.title = 'Knockout';\n    this.numberOfClicks = ko.observable(0);\n\n    this.registerClick = function () {\n      this.numberOfClicks(this.numberOfClicks() + 1);\n    };\n  }\n}\n\nko.applyBindings(new ClickCounterViewModel());\n"
+  },
+  "stylesheets": [],
+  "scripts": [],
+  "cssPreset": "",
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "tools": {
+    "enabled": "all",
+    "active": "",
+    "status": ""
+  },
+  "zoom": 1,
+  "processors": [],
+  "customSettings": {},
+  "useTabs": false,
+  "tabSize": 2,
+  "lineNumbers": true,
+  "wordWrap": false,
+  "closeBrackets": true,
+  "semicolons": true,
+  "singleQuote": false,
+  "trailingComma": true,
+  "emmet": true,
+  "version": "10"
+}
