@@ -28,7 +28,9 @@ Read about [why Livecodes](https://livecodes.io/docs/why), it's [features](https
 
 See starter templates here: [gapmiss/livecodes-for-obsidian/templates](https://github.com/gapmiss/livecodes-for-obsidian/tree/master/templates)
 
-## Download
+## Install
+
+### via Release download
 
 Download pre-release beta plugin from: [livecodes-for-obsidian-v0.1.0-beta.zip](https://github.com/gapmiss/livecodes-for-obsidian/releases/download/0.1.0-beta/livecodes-for-obsidian-v0.1.0-beta.zip) or [gapmiss/livecodes-for-obsidian/releases](https://github.com/gapmiss/livecodes-for-obsidian/releases)
 
@@ -37,6 +39,13 @@ Once downloaded to one's local machine, follow these steps to install:
 1. extract the downloaded archive (`livecodes-for-obsidian-v0.1.0-beta.zip`)
 2. move the extracted folder/directory to `/path/to/vault/.obsidian/plugins`
 3. In **Obsidian settings** > **Community plugins**, enable the **Livecodes** plugin
+
+### via BRAT (Beta Reviewer's Auto-update Tool)
+
+1. Ensure [BRAT](https://github.com/TfTHacker/obsidian42-brat) is installed
+2. Trigger the command `Obsidian42 - BRAT: Add a beta plugin for testing` 
+3. Enter this repository, `gapmiss/livecodes-for-obsidian`
+4. Enable *Livecodes* plugin in community plugin list
 
 ## Issues and bug reports
 
