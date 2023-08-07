@@ -26,7 +26,7 @@ Read about [why Livecodes](https://livecodes.io/docs/why), it's [features](https
 1. `Livecodes: Open template in livecodes`
 2. `Livecodes: New blank project in livecodes`
 
-See starter templates here: [gapmiss/livecodes-for-obsidian/templates](https://github.com/gapmiss/livecodes-for-obsidian/tree/0.1.0-beta/templates)
+See starter templates here: [gapmiss/livecodes-for-obsidian/templates](https://github.com/gapmiss/livecodes-for-obsidian/tree/master/templates)
 
 ## Download
 
