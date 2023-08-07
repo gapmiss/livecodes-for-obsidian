@@ -1,7 +1,7 @@
 {
 	"id": "livecodes",
 	"name": "Livecodes",
-	"version": "0.1.0",
+	"version": "0.1.0-beta",
 	"minAppVersion": "0.15.0",
 	"description": "Livecodes REPL playground",
 	"author": "@gapmiss",

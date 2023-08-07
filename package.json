@@ -1,6 +1,6 @@
 {
 	"name": "livecodes-for-obsidian",
-	"version": "0.1.0",
+	"version": "0.1.0-beta",
 	"description": "Livecodes REPL playground plugin for Obsidian.md (https://obsidian.md)",
 	"main": "main.js",
 	"scripts": {
