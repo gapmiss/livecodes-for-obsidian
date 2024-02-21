@@ -1,5 +1,8 @@
 # Livecodes Playground
 
+> [!IMPORTANT]
+> 2024-02-21: project archived; New plugin here: [https://github.com/gapmiss/livecodes-playground](https://github.com/gapmiss/livecodes-playground)
+
 ## 🚧 W.I.P. pre-release BETA 🚧
 
 <img src="https://livecodes.io/docs/img/livecodes-logo.svg" style="width:200px; margin: 0 auto;">
